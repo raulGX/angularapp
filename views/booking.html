@@ -1,0 +1,90 @@
+<div class="container-fluid ">
+    <div class="ps-dashboard-header">
+        <h3>New Booking</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-2">
+            <form name="myForm">
+                <div class="form-group">
+                    <div class="input-group">
+                        <label>Pickup Date(dd/mm/yyyy)</label>
+
+                        <input is-open="popup1.opened" uib-datepicker-popup="dd.MM.yyyy" class="form-control input-smaller" ng-model="userInfo.pickupDate" ng-click="open1()" datepicker-options="dateOptions">
+
+                    </div>
+
+                    <div class="p-top-5">
+                        <label >Time </label>
+                        <input type="text" class="form-control small-text-box inline input-sm" ng-model="hour">
+                        :
+                        <input type="text" class="form-control small-text-box inline input-sm" ng-model="minutes"><br/>
+                        <!--<input class="form-control" ng-model="userInfo.pickupTime">-->
+
+                    </div>
+
+                    <label>Pickup</label>
+                    <input type="text" ng-model="userInfo.pickup" id="pickup" class="form-control input-smaller" ng-blur="getDistance();getPrice()">
+
+
+                    <label>Dropoff</label>
+                    <input type="text" ng-model="userInfo.dropoff" id="dropoff" class="form-control input-smaller" ng-blur="getDistance();getPrice()">
+                </div>
+            </form>
+            <form name="cars">
+
+                <label>Car:</label>
+                <select class="form-control input-smaller" ng-model="userInfo.cartype" ng-change="setCarId();getPrice();calcCars();">
+                    <option ng-repeat="seat in arrayOfSeats" value="{{seat.cartype_name}}">{{seat.cartype_name}}</option>
+                </select>
+                <!--<div class="form-group">-->
+                <!--<label>Car type</label>-->
+                <!--<div ng-repeat="button in radioButtons | filter : numberOfSeats" >-->
+                <!--<label class="radio-inline">-->
+                <!--<input type="radio" value="{{button.type}}" ng-model="userInfo.cartype" ng-change="getPrice()">{{button.type}}-->
+                <!--</label>-->
+                <!--</div>-->
+                <!--</div>-->
+                <div class="form-group">
+                    <label>Available Cars</label>
+                    <select class="form-control input-smaller" ng-change="setCartodriver(etc.cartodriver_id)" ng-model="etc">
+                        <option ng-repeat="car in possibleCars" value="{{car}}" >{{car.car_model + " - " + car.driver_name}}</option>
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <label>Payment Method</label>
+                    <select class="form-control input-smaller" ng-model="userInfo.payment" ng-change="setPaymentId();getPrice();">
+                        <option ng-repeat="type in paymentTypes" value="{{type.paymentName}}">{{type.paymentName}}</option>
+                    </select>
+
+                </div>
+                <button class="btn btn-success" ng-click="postBooking()">Post</button>
+                <button class="btn btn-danger" ng-click="RandomBooking()">Random</button>
+                <button class="btn btn-danger" ng-click="LotsOfRandoms()">Lost of Randoms</button>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <h2>
+                Price : {{price | number : 2}} RON
+                <br/>
+                Distance : {{distance / 1000 | number : 2}} km
+            </h2>
+                <form name="ClientForm">
+                    <div class="form-group">
+                        <label>Search Client</label>
+                        <input type="text" ng-model="userInfo.clientNameAutocomplete" class="form-control input-smaller" uib-typeahead="users for users in getUserBySearch($viewValue)" ng-blur="completeUserInfo()">
+
+                        <label>Client Name</label>
+                        <input type="text" ng-model="userInfo.clientName" class="form-control input-smaller">
+
+                        <label>Client Number</label>
+                        <input type="text" ng-model="userInfo.clientNumber" class="form-control input-smaller">
+
+                        <label>Client email</label>
+                        <input type="text" ng-model="userInfo.clientEmail" class="form-control input-smaller">
+                    </div>
+                    <button class="btn btn-warning" ng-click="createClient()">Add Client</button>
+                </form>
+        </div>
+    </div>
+</div>

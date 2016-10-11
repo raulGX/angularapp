@@ -1,0 +1,76 @@
+<div class="container-fluid">
+    <div class="ps-dashboard-header">
+        <h3>Dashboard</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-lg-3">
+            <div class="panel widget">
+                <div class="panel-heading">
+                    <h4>Money earned yesterday</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="paddingl-20">4000$</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="panel widget">
+                <div class="panel-heading">
+                    <h4>Bookings made yesterday</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="paddingl-20">200</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="panel widget">
+                <div class="panel-heading">
+                    <h4>Available drivers</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="paddingl-20">12</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="panel widget">
+                <div class="panel-heading">
+                    <h4>Bookings made today</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="paddingl-20">11</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-lg-5">
+            <!--pie chart + somth else-->
+            <div class="panel">
+                <div class="panel-heading">
+                    <h4>Booking completion percentage</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="pie-chart1"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h4>Customer support</h4>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="notification in notifications">{{notification}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <!-- clock and smth else -->
+        </div>
+    </div>
+</div>
+

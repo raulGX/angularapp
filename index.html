@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Car app</title>
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="js/ext_modules/psFramework/psFramework.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="js/ext_modules/psMenu/psMenu.css">
+    <link rel="stylesheet" href="bower_components/c3-0.4.11/c3.min.css">
+
+    <script src="bower_components/d3/d31.min.js"></script>
+    <script src="bower_components/c3-0.4.11/c3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+    <script src="https://code.angularjs.org/1.5.8/angular-cookies.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+
+    <script src="bower_components/angular/ui-bootstrap-tpls-2.0.2.min.js"></script>
+    <script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
+
+    <script src="js/ext_modules/psDashboard/psDashboardModule.js"></script>
+
+    <script src="js/ext_modules/psMenu/psMenuModule.js"></script>
+    <script src="js/ext_modules/psMenu/psMenuDirective.js"></script>
+    <script src="js/ext_modules/psMenu/psMenuItemDirective.js"></script>
+    <script src="js/ext_modules/psMenu/psMenuController.js"></script>
+
+    <script src="js/ext_modules/psFramework/psFrameworkModule.js"></script>
+
+    <script src="js/ext_modules/psFramework/psFrameworkDirective.js"></script>
+    <script src="js/ext_modules/psFramework/psFrameworkController.js"></script>
+
+    <script src="js/app.js" ></script>
+
+    <!--controllers-->
+    <script src="js/controller/MainCtrl.js"></script>
+    <script src="js/controller/LoginCtrl.js"></script>
+    <script src="js/controller/BookingController.js"></script>
+    <script src="js/controller/LandingCtrl.js"></script>
+    <script src="js/controller/DashboardCtrl.js"></script>
+    <script src="js/controller/LogoutCtrl.js"></script>
+    <script src="js/controller/Statistics.js"></script>
+    <script src="js/controller/DriverToCar.js"></script>
+
+    <!--services-->
+    <script src="js/services/GoogleLocation.js"></script>
+    <script src="js/services/authentification.service.js"></script>
+    <script src="js/services/alerting.js"></script>
+    <script src="js/services/bookingRequest.service.js"></script>
+    <script src="js/services/Main_Conf.js"></script>
+    <script src="js/services/Car.js"></script>
+    <script src="js/services/alerting.js"></script>
+    <script src="js/services/statistics.js"></script>
+    <!--directives-->
+    <script src="js/directives/alerting.js"></script>
+    <script src="js/directives/forminput.js"></script>
+    <script src="js/directives/navbar.js"></script>
+
+    <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfQ09680Bxmb4-6F2pzIFNeP3gM9DfqkI&libraries=places">
+    </script>
+
+
+</head>
+<body ng-app="myApp" class="container-fluid" ng-controller="LandingCtrl">
+<ps-framework title="Amazing Car Company"
+              subtitle="Amazing Page"
+              icon-file="data/img/dodge1.gif"
+              ng-if="isRestricted()">
+    <ps-menu>
+        <ps-menu-item label="Dashboard" icon="fa-tachometer" route=""></ps-menu-item>
+        <ps-menu-item label="Bookings" icon="fa-desktop" route="/bookings"></ps-menu-item>
+        <ps-menu-item label="New Booking" icon="fa-taxi" route="/newbooking"></ps-menu-item>
+        <ps-menu-item label="Add Driver/Car" icon="fa-user" route="/drivertocar"></ps-menu-item>
+        <ps-menu-item label="Statistics" icon="fa-area-chart" route="/statistics"></ps-menu-item>
+        <ps-menu-item label="Logout" icon="fa-sign-out" route="/logout"></ps-menu-item>
+    </ps-menu>
+</ps-framework>
+
+<div ng-view class="ps-view" ng-class="{'ps-view-full-width': !isRestricted() || showMenu, 'no-border': isLogin()}">
+
+</div>
+<alerts></alerts>
+
+</body>
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+</html>

@@ -1,0 +1,170 @@
+<div class="container-fluid">
+    <div class="ps-dashboard-header">
+        <h3>Add Driver/Car</h3>
+    </div>
+    <div class="app">
+        <div class="row">
+            <div class="col-md-5 col-md-offset-1">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4>Add Driver</h4>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-group" name="DriverForm" ng-submit="addDriver();">
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-1">
+                                    <div class="form-group">
+                                        <label>Driver Name</label>
+                                        <input type="text" class="form-control" ng-model="driverInfo.driver_name" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Driver Email</label>
+                                        <input type="email" class="form-control" ng-model="driverInfo.driver_email" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Driver Phone</label>
+                                        <input type="text" class="form-control" ng-model="driverInfo.driver_phone" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Driver Address</label>
+                                        <input type="text" class="form-control" id="driver-address" ng-model="driverInfo.driver_garage" required>
+                                    </div>
+
+                                    <button class="btn" type="submit" value="Submit">Add Driver</button>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <br/>
+                                        <div class="thumbnail">
+                                            <img ng-src="{{driverInfo.driver_picture}}">
+                                            <div class="caption">
+                                                <div class="form-group">
+                                                    <p>Amazing Driver</p>
+                                                    <label>Driver image link</label>
+                                                    <input type="text" class="form-control" ng-model="driverInfo.driver_picture" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4>Add Car</h4>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-group" name="CarForm" ng-submit="addCar();">
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-1">
+                                    <div class="form-group">
+                                        <label>Car Model</label>
+                                        <input type="text" class="form-control" ng-model="carInfo.car_model" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Car Year</label>
+                                        <input type="text" class="form-control" ng-model="carInfo.car_year" required>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="form-group">
+                                                    <label>Cartype Id</label>
+                                                    <select class="form-control" ng-model="carInfo.cartype_id" required>
+                                                        <option value="{{car.cartype_id}}" ng-repeat="car in cartypes">{{car.cartype_name}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Car Seats</label>
+                                                <input type="number" class="form-control" ng-model="carInfo.car_seats" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Big Luggage</label>
+                                                <input type="number" class="form-control" ng-model="carInfo.car_big_luggage" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Small Luggage</label>
+                                                <input type="number" class="form-control" ng-model="carInfo.car_small_luggage" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn" type="submit" value="Submit">Add Car</button>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <br/>
+                                        <div class="thumbnail">
+                                            <img ng-src="{{carInfo.car_picture}}">
+                                            <div class="caption">
+                                                <p>Amazing Car</p>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Car image link</label>
+                                                <input type="text" class="form-control" ng-model="carInfo.car_picture" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Car Description</label>
+                                                <textarea rows="2" type="text" class="form-control" ng-model="carInfo.car_description" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4>Assign Driver To Car</h4>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Driver</th>
+                                <th>Available Cars</th>
+                                <th/>
+                            </tr>
+                            <tr ng-repeat="driver in drivers">
+                                <td>{{driver.name}}</td>
+                                <td >
+                                    <select ng-model="carId">
+                                        <option ng-repeat="car in cars" value="{{car.car_id}}">
+                                        {{car.car_model}}
+                                        </option>
+                                    </select>
+                                </td>
+                                <td><button class="btn btn-info" ng-click="assignD(driver.id, carId)">Assign</button> </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

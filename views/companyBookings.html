@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="ps-dashboard-header">
+        <h3>Bookings</h3>
+    </div>
+    <div class="app">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Current Listing <span class="pull-right">Total listings: {{totalBookings}}</span></h4>
+
+                <table class="table table-striped">
+                    <tr>
+                        <th>ID</th>
+                        <th>Driver</th>
+                        <th>Pickup Time</th>
+                        <th>Pickup Address</th>
+                        <th>Dropoff Address</th>
+                        <th>Car</th>
+                        <th>Client</th>
+                        <th>Price</th>
+                    </tr>
+                    <tr dir-paginate="booking in bookings | itemsPerPage: bookingsPerPage" total-items="totalBookings" current-page="pagination.current">
+                        <td>{{$index + 1 + getTheId()}}</td>
+                        <td>{{booking.driver_name}}</td>
+                        <td>{{booking.booking_pickup_time}}</td>
+                        <td>{{booking.booking_pickup_address }}</td>
+                        <td>{{booking.booking_dropoff_address}}</td>
+                        <td>{{booking.car_model}}</td>
+                        <td>{{booking.client_name + ' ' + booking.client_phone}}</td>
+                        <td>{{booking.booking_price}} RON</td>
+                    </tr>
+                </table>
+                <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>

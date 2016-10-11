@@ -1,0 +1,79 @@
+.ps-menu-area {
+    position: absolute;
+    display: inline-block;
+    background-color: #333;
+    color: #ccc;
+    padding-left: 0;
+    width: 200px;
+    height: calc(100vh - 68px);
+    padding-top: 20px;
+}
+
+.ps-menu-area .btn:hover {
+    color: #ccc;
+}
+
+.ps-menu {
+    list-style-type: none;
+    vertical-align: top;
+}
+
+.ps-menu ul {
+    display: inline;
+    list-style-type: none;
+    padding-left: 0;
+}
+.ps-menu li {
+    line-height: 3em;
+    cursor: pointer;
+}
+
+.ps-selectable-item:hover {
+    background-color: #555;
+}
+
+.ps-noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.ps-menu li div{
+    display: inline-block;
+    width: 90%;
+    padding-left: 15px;
+}
+.ps-menu-area ul{
+    padding: 0px;
+}
+.ps-menu-icon{
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 420px){
+    .ps-icon{
+        display: none;
+    }
+    .ps-logo-title{
+        font-size: 18px;
+    }
+}
+.ps-menu-active-indicator{
+    float: right;
+    color: #ddd;
+    margin-right:0;
+    margin-top: 8px;
+}
+.menu-item-active{
+    background-color: #555;
+}
+.ps-nav-button{
+    height: 40px;
+    width: 60px;
+    margin-top: 10px;
+    border: 1px solid #888;
+    padding: 0;
+    font-size: 26px;
+    color: #777;
+}

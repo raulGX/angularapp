@@ -1,0 +1,48 @@
+.ps-title-area{
+    display: inline-block;
+}
+.ps-logo-title{
+
+}
+.ps-title-bar{
+    background-color: white;
+    padding: 0 20px;
+    border-bottom: 2px solid black;
+}
+.ps-logo-title {
+    color: #111;
+    margin-top: 6px;
+    font-size: 22px;
+}
+
+.ps-logo-subtitle {
+    font-size: 13px;
+    margin-top: -13px;
+}
+
+.ps-icon{
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    vertical-align: top;
+    margin: 8px;
+}
+.ps-view{
+    position: relative;
+    margin-left: 200px;
+    /*padding: 20px;*/
+    background-color: #ccc;
+    min-height: calc(100vh - 66px);
+    overflow: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.ps-view-full-width{
+    margin-left: 0;
+}
+.ps-right-side-controls{
+    line-height: 60px;
+}
+.ps-user-buttons{
+    margin-bottom: 10px !important;
+}

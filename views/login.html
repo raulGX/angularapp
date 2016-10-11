@@ -1,0 +1,36 @@
+<div class="centered">
+
+        <div class="row">
+            <div class="col-lg-2 col-lg-offset-5 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 login-box">
+                <form name="loginForm" ng-submit="login()" novalidate>
+                    <!--<div forminput ng-class="{'has-error':loginForm.key.$touched && loginForm.key.$error.required}">-->
+                        <!--<label for="key">Api Key:</label>-->
+                        <!--<input type="text" id="key" name="key" ng-model="credentials.api_key" required >-->
+                        <!--<span ng-show="loginForm.key.$touched && loginForm.key.$error.required" class="text-danger">Form field is required!</span>-->
+                    <!--</div>-->
+                    <h4 class="text-center">Amazing Car Company</h4>
+                    <div forminput ng-class="{'has-error':loginForm.email.$touched && loginForm.email.$error.required || loginForm.email.$touched && loginForm.email.$viewValue.length && loginForm.email.$invalid}">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" ng-model="credentials.email" required>
+                        <span ng-show="loginForm.email.$touched && loginForm.email.$error.required" class="text-danger">Form field is required!</span>
+                        <span ng-show="loginForm.email.$touched && loginForm.email.$viewValue.length && loginForm.email.$invalid" class="text-danger">Please enter a valid!</span>
+                    </div>
+                    <div forminput ng-class="{'has-error':loginForm.password.$touched && loginForm.password.$error.required}">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" id="password" ng-model="credentials.password" required>
+                        <span ng-show="loginForm.password.$touched && loginForm.password.$error.required" class="text-danger">Form field is required!</span>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" ng-model="credentials.remember"> Remember me
+                        </label>
+                    </div>
+                    <p class="alert-danger alert" ng-if="badLogin.show">{{badLogin.message}}</p>
+                    <button class="btn btn-primary" ng-disabled="loginForm.$invalid" type="submit" value="Submit">Log In</button>
+                    <button class="btn btn-success" >Register</button>
+                </form>
+            </div>
+
+        </div>
+
+</div>

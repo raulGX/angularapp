@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="ps-dashboard-header">
+        <h3>Statistics</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-heading">
+                    Number of drivers at certain hours
+                    <select ng-model="displayStatistics">
+                        <option value="" disabled selected>Showing all the bookings</option>
+                        <option ng-repeat="month in months" value="{{month}}">{{month}}</option>
+                    </select>
+                    <button class="btn btn-green pull-right refresh-btn" ng-click="refresh()">Refresh</button>
+                </div>
+                <div class="panel-body">
+                    <div id="chart1"></div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="col-md-12">-->
+            <!--<div class="panel">-->
+                <!--<div class="panel-heading">-->
+                    <!--Driver Rankings-->
+                <!--</div>-->
+                <!--<div class="panel-body">-->
+                    <!--<table class="table table-striped" id="driver-ranking">-->
+                        <!--<tr>-->
+                            <!--<th>Place</th>-->
+                            <!--<th>Name</th>-->
+                            <!--<th>Money earned</th>-->
+                            <!--<th>Laps</th>-->
+                        <!--</tr>-->
+                        <!--<tr ng-repeat="driver in drivers | orderBy: '-earnings'">-->
+                            <!--<td>{{$index + 1}}</td>-->
+                            <!--<td>{{driver.name}}</td>-->
+                            <!--<td>{{driver.earnings}}</td>-->
+                            <!--<td>{{driver.laps}}</td>-->
+                        <!--</tr>-->
+                    <!--</table>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    </div>
+</div>
